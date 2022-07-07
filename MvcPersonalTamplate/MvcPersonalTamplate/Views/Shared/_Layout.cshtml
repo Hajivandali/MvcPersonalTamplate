@@ -11,9 +11,9 @@
 	<meta name="author" content="">
 	<link rel="shortcut icon" href="favicon.ico">
 
-	<script defer src="assets/fontawesome/js/all.js"></script>
-	<link rel="stylesheet" href="assets/css/theme-1.css">
-	<link rel="stylesheet" href="assets/css/style.css">
+	<script defer src="~/assets/fontawesome/js/all.js"></script>
+	<link rel="stylesheet" href="~/assets/css/theme-1.css">
+	<link rel="stylesheet" href="~/assets/css/style.css">
 
 </head>
 
@@ -32,7 +32,7 @@
 
 				<div id="navigation" class="collapse navbar-collapse flex-column">
 					<div class="profile-section pt-3 pt-lg-0">
-						<img class="profile-image mb-3 rounded-circle mx-auto" src="assets/images/me.jpeg" alt="image">
+						<img class="profile-image mb-3 rounded-circle mx-auto" src="~/assets/images/me.jpeg" alt="image">
 
 						<div class="bio mb-3">سلام، حسین عباس آبادی هستم از موسسه آموزشی آتریا. به وبسایت شخصی من خوش
 							آمدید.</div>
@@ -48,16 +48,14 @@
 					</div>
 					<ul class="navbar-nav flex-column text-right">
 						<li class="nav-item">
-							<a class="nav-link" href="index.html"><i class="fas fa-user fa-fw ml-2"></i>صفحه اصلی<span
-									class="sr-only">(current)</span></a>
+							<a class="nav-link" href="@Url.Action("Index","Home")"><i class="fas fa-user fa-fw ml-2"></i>صفحه اصلی</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="contact.html"><i
+							<a class="nav-link" asp-action="Contact" asp-controller="Home"><i
 									class="fas fa-envelope-open-text fa-fw ml-2"></i>ارتباط با ما</a>
 						</li>
 					</ul>
 				</div>
-		</div>
 		</nav>
 		</div>
 	</header>
@@ -73,9 +71,9 @@
 	</div>
 
 	<!-- Javascript -->
-	<script src="assets/plugins/jquery-3.4.1.min.js"></script>
-	<script src="assets/plugins/popper.min.js"></script>
-	<script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+	<script src="~/assets/plugins/jquery-3.4.1.min.js"></script>
+	<script src="~/assets/plugins/popper.min.js"></script>
+	<script src="~/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
 </body>
 
 </html>
