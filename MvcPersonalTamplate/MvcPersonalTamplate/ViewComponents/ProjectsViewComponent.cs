@@ -10,7 +10,7 @@ namespace MvcPersonalTamplate.ViewComponents
 
         public IViewComponentResult Invoke()
         {
-            return View();
+            return View("_Projects");
         }
 
 
