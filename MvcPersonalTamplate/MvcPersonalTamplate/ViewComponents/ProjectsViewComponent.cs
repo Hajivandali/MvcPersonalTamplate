@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MvcPersonalTamplate.Models;
-
 namespace MvcPersonalTamplate.ViewComponents
 
 {
