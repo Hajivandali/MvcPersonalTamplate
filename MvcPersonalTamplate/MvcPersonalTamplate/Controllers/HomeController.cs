@@ -11,14 +11,24 @@ namespace MvcPersonalTamplate.Controllers
         {
         }
 
+
         public IActionResult Index()
         {
             return View();
         }
 
+
+        [HttpGet]
         public IActionResult Contact()
         {
             return View();
+        }
+
+
+        [HttpPost]
+        public JsonResult Contact(IFormCollection form)
+        {
+            return Json(Ok());
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
