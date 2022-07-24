@@ -26,10 +26,14 @@ namespace MvcPersonalTamplate.Controllers
 
 
         [HttpPost]
-        public JsonResult Contact(IFormCollection form)
+        public JsonResult Contact(ContactForm form)
         {
-            return Json(Ok());
-        }
+            Console.WriteLine(form.ToString());
+                  return Json(Ok());
+        } 
+
+
+
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
