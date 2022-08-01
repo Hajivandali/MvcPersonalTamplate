@@ -10,7 +10,7 @@ namespace MvcPersonalTamplate.Models
         public string Name { get; set; }
         [Required(ErrorMessage = "فیلد اجباری است ")]
         [EmailAddress(ErrorMessage ="مقدار وارد شده صحیح نیست")]
-        public string Email { get; set; }
+        public string Email { get; set; }  
         public string Message { get; set; }
         public string Service { get; set; }
 

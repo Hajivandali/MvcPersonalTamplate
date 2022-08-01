@@ -26,17 +26,22 @@ namespace MvcPersonalTamplate.Controllers
 
 
         [HttpPost]
-        public JsonResult Contact(ContactForm form)
+        public IActionResult Contact(ContactForm form)
         {
-            Console.WriteLine(form.ToString());
-                  return Json(Ok());
+            if(ModelState.IsValid == false)
+            {
+                ViewBag.error = "مشکلی دارد ";
+                return View(form);
+            }
+            ViewBag.success = "با موفقیت ارسال شد ";
+            return View();
         } 
 
 
 
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
+        public IActionResult Error() 
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
