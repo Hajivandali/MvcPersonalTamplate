@@ -37,16 +37,27 @@ namespace MvcPersonalTamplate.Controllers
 
 
         [HttpPost]
-        public IActionResult Contact(ContactForm form)
+        public IActionResult Contact(ContactForm contactForm)
         {
-            if(ModelState.IsValid == false)
+            var model = new ContactForm
+            {
+                Services = new SelectList(_Services, dataValueField: "Id", dataTextField: "Name")
+            };
+
+            if (!ModelState.IsValid)
             {
                 ViewBag.error = "مشکلی دارد ";
-                return View(form);
+                return View(model);
             }
-            ViewBag.success = "با موفقیت ارسال شد ";
-            return View();
-        } 
+            else if(ModelState.IsValid [])
+            {
+                ViewBag.success = "با موفقیت ارسال شد ";
+                return View(model);
+            };
+ 
+
+          
+        }
 
 
 
