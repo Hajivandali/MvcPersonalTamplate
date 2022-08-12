@@ -9,21 +9,16 @@ namespace MvcPersonalTamplate.Controllers
     {
         private readonly List<Service> _Services = new List<Service>
         {
-            new Service(id:1, name:"وب اپلیکیشن"),
-            new Service(id:2, name:"طراحی UI | UX "),
-            new Service(id:3, name:"خدمات Seo"),
-            new Service(id:4, name:"خدمات برندینگ"),
+            new Service(1, "طراحی "),
+            new Service(2, "ثبت"),
+            new Service(3, "ارتباط"),
+            new Service(4, "تماس"),
         };
-        public HomeController()
-        {
-        }
-
 
         public IActionResult Index()
         {
             return View();
         }
-
 
         [HttpGet]
         public IActionResult Contact()
@@ -35,35 +30,36 @@ namespace MvcPersonalTamplate.Controllers
             return View(model);
         }
 
+        //[HttpPost]
+        //public JsonResult Contact(IFormCollection form)
+        //{
+        //    var name = form["name"];
+        //    return Json(Ok());
+        //}
 
         [HttpPost]
-        public IActionResult Contact(ContactForm contactForm)
+        public IActionResult Contact(ContactForm model)
         {
-            var model = new ContactForm
+            model.Services = new SelectList(_Services, dataValueField: "Id", dataTextField: "Name");
+            //if(ModelState.IsValid == false)
+            if (!ModelState.IsValid)
+            {
+                ViewBag.error = "اطلاعات وارد شده صحیح نیست. لطفا دوباره تلاش کنید";
+                return View(model);
+            }
+
+            ModelState.Clear();
+
+            model = new ContactForm
             {
                 Services = new SelectList(_Services, dataValueField: "Id", dataTextField: "Name")
             };
-
-            if (!ModelState.IsValid)
-            {
-                ViewBag.error = "مشکلی دارد ";
-                return View(model);
-            }
-            else if(ModelState.IsValid [])
-            {
-                ViewBag.success = "با موفقیت ارسال شد ";
-                return View(model);
-            };
- 
-
-          
+            ViewBag.success = "پیغام شما با موفقیت ارسال شد. باتشکر";
+            return View(model);
         }
 
-
-
-
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error() 
+        public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
